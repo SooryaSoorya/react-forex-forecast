@@ -104,9 +104,6 @@ function Converter(props) {
       reverseArrayWithCurrency(tempSortedArray);
       setChartData([...sortedData]);
       setPredictionData([...tempSortedArray]);
-      setInputValuesOnConvertClick(tempSortedArray);
-      props.showLoading(false);
-      setButtonEnable(false);
     } else {
       setButtonEnable(false);
       props.showLoading(false);
@@ -126,8 +123,6 @@ function Converter(props) {
       // setTargetamount(tempData[0][toCurrency]);
       // setBaseamount(1);
       setChartData(sortedData);
-      props.showLoading(false);
-      setButtonEnable(false);
     } else {
       setButtonEnable(false);
       console.error("Error: ", result);
@@ -148,7 +143,10 @@ function Converter(props) {
     })
     const sortedData = tempData.slice().sort((first, second) =>
       moment(first.name).format('DD-MM-YYYY') - moment(second.name).format('DD-MM-YYYY')
-    )
+    );
+    setInputValuesOnConvertClick(sortedData);
+    props.showLoading(false);
+    setButtonEnable(false);
     return sortedData;
   }
   const resetInputFields = () => {
@@ -261,11 +259,11 @@ function Converter(props) {
         </Card.Body>
       </Card>
 
-      <Container>
+      <Container className="rff-chartcontainer">
         <Row>
           {chartData &&
             <Col xs={6}>
-              <div className="chartview">
+              <div className="rff-chartview">
                 <ChartView
                   header="Chart View"
                   renderData={chartData}
@@ -277,7 +275,7 @@ function Converter(props) {
           }
           {predictionData &&
             <Col xs={6}>
-              <div className="predictionview">
+              <div className="rff-predictionview">
                 <ChartView
                   header="Forecast View"
                   renderData={predictionData}
@@ -288,6 +286,7 @@ function Converter(props) {
             </Col>
           }
         </Row>
+        {(!predictionData && !chartData) && <div className="rff-chartnodata">{'No chart available'}</div>}
       </Container>
     </div >
   );
