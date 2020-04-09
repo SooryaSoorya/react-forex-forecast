@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ChartView /> renders 1`] = `
+<div
+  style={
+    Object {
+      "height": "auto",
+      "width": 660,
+    }
+  }
+>
+  <AreaChart
+    barCategoryGap="10%"
+    barGap={4}
+    height={400}
+    layout="horizontal"
+    margin={
+      Object {
+        "bottom": 20,
+        "left": 0,
+        "right": 500,
+        "top": 10,
+      }
+    }
+    reverseStackOrder={false}
+    stackOffset="none"
+    width={1000}
+  >
+    <CartesianGrid
+      fill="none"
+      horizontal={true}
+      horizontalFill={Array []}
+      horizontalPoints={Array []}
+      stroke="#ccc"
+      strokeDasharray="3 3"
+      vertical={true}
+      verticalFill={Array []}
+      verticalPoints={Array []}
+    />
+    <XAxis
+      allowDataOverflow={false}
+      allowDecimals={true}
+      allowDuplicatedCategory={true}
+      dataKey="name"
+      domain={
+        Array [
+          0,
+          "auto",
+        ]
+      }
+      height={30}
+      hide={false}
+      mirror={false}
+      orientation="bottom"
+      padding={
+        Object {
+          "left": 0,
+          "right": 0,
+        }
+      }
+      reversed={false}
+      scale="auto"
+      tickCount={5}
+      type="category"
+      width={0}
+      xAxisId={0}
+    />
+    <YAxis
+      allowDataOverflow={false}
+      allowDecimals={true}
+      allowDuplicatedCategory={true}
+      domain={
+        Array [
+          0,
+          "auto",
+        ]
+      }
+      height={0}
+      hide={false}
+      mirror={false}
+      orientation="left"
+      padding={
+        Object {
+          "bottom": 0,
+          "top": 0,
+        }
+      }
+      reversed={false}
+      scale="auto"
+      tickCount={5}
+      type="number"
+      width={60}
+      yAxisId={0}
+    />
+    <Tooltip
+      active={false}
+      allowEscapeViewBox={
+        Object {
+          "x": false,
+          "y": false,
+        }
+      }
+      animationDuration={400}
+      animationEasing="ease"
+      contentStyle={Object {}}
+      coordinate={
+        Object {
+          "x": 0,
+          "y": 0,
+        }
+      }
+      cursor={true}
+      cursorStyle={Object {}}
+      filterNull={true}
+      isAnimationActive={true}
+      itemStyle={Object {}}
+      labelStyle={Object {}}
+      offset={10}
+      separator=" : "
+      useTranslate3d={false}
+      viewBox={
+        Object {
+          "x1": 0,
+          "x2": 0,
+          "y1": 0,
+          "y2": 0,
+        }
+      }
+      wrapperStyle={Object {}}
+    />
+    <Area
+      activeDot={true}
+      animationBegin={0}
+      animationDuration={1500}
+      animationEasing="ease"
+      connectNulls={false}
+      dot={false}
+      fill="#82ca9d"
+      fillOpacity={0.6}
+      hide={false}
+      isAnimationActive={true}
+      legendType="line"
+      points={Array []}
+      stackId="1"
+      stroke="#82ca9d"
+      type="monotone"
+      xAxisId={0}
+      yAxisId={0}
+    />
+    <Area
+      activeDot={true}
+      animationBegin={0}
+      animationDuration={1500}
+      animationEasing="ease"
+      class="firstareachart"
+      connectNulls={false}
+      dot={false}
+      fill="#8884d8"
+      fillOpacity={0.6}
+      hide={false}
+      isAnimationActive={true}
+      legendType="line"
+      points={Array []}
+      stackId="1"
+      stroke="#8884d8"
+      type="monotone"
+      xAxisId={0}
+      yAxisId={0}
+    />
+  </AreaChart>
+</div>
+`;

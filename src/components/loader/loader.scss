@@ -1,0 +1,9 @@
+$greenColor : rgb(11, 170, 59); 
+.loader{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  color: $greenColor;
+  z-index: 999;
+}
+  

@@ -1,0 +1,52 @@
+$assetPath : "/./../../assets/images/";
+$greenColor : #95ecaf;
+$blackColor : #000;
+$greyColor : #ced4da;
+$darkGreyColor : #777777;
+.rff-converter {
+    width: 100%;
+    padding: 0 15%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.rff-form {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+  
+.rff-orm,
+.rff-baseamount,
+.rff-targetamount,
+.rff-weeks {
+        padding: 5px;
+        margin: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(119, 119, 119, 0.5) !important;
+}
+.rff-submitbtn {
+  background-color: $greenColor !important;
+  color: $blackColor !important;
+  border-color: $greenColor !important
+}
+.headerimage {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  top: 14px;
+}
+.was-validated .form-control:valid, .form-control.is-valid {
+  border : 1px solid $greyColor !important;
+  background-image: none !important;
+}
+.predictionview {
+  position: absolute;
+}
+.chartview {
+  position: absolute;
+}

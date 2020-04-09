@@ -1,0 +1,18 @@
+.alertcontainer {
+    position: relative;
+    z-index: 99;
+}
+
+.toastcontainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.toast-body {
+    color: red;
+}
+
+.toast-header {
+    color: red !important;
+}
