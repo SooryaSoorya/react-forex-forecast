@@ -9,7 +9,7 @@ class converterService {
         return fetch(endpoint)
             .catch(error => console.error("Error: ", error));
     }
-    
+
     onInitialLoad(param) {
         const endpoint = `${API_URL}latest?symbols=${param.fromCurrency},${param.toCurrency}`;
         return fetch(endpoint)

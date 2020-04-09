@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './chart-view.scss';
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine
 } from 'recharts';
 
 function ChartView(props) {
   const [maxValue, setMaxValue] = useState();
   const [minValue, setMinValue] = useState();
+  const [minYValue, setMinYValue] = useState();
   const [maxYValue, setMaxYValue] = useState();
   const [chartColor, setChartColor] = useState(props.areaColor);
   console.log('areaColorareaColor', props.areaColor);
@@ -16,6 +17,7 @@ function ChartView(props) {
       setMaxValue(getMaxXValue());
       setMinValue(getMinValue());
       setChartMaxYValue();
+      setChartMinYValue();
       setChartColor(props.areaColor)
     }
   }, [props.areaColor, props.toCurrency, props.renderData])
@@ -26,18 +28,23 @@ function ChartView(props) {
     // console.log('props.toCurrency',props.toCurrency)
     return Math.max(...props.renderData.map(function (item) { return item[props.toCurrency]; }), 0);
   }
+
   const getMinValue = () => {
     return Math.min.apply(null, props.renderData.map(function (item) { return item[props.toCurrency]; }));
   }
+
   const setChartMaxYValue = () => {
-    // console.log('Math.round(maxValue + (25 * maxValue / 100))', Math.round(maxValue + (25 * maxValue / 100)))
     setMaxYValue(Math.round(maxValue + (25 * maxValue / 100)));
+  }
+
+  const setChartMinYValue = () => {
+    setMinYValue(Math.round(minValue - (50 * minValue / 100)));
   }
 
   return (
 
     <div >
-      <h3 className="chartheader">{props.header}</h3>
+      <h3 className="rff-chartheader">{props.header}</h3>
       <AreaChart
         width={1000}
         height={400}
@@ -55,7 +62,7 @@ function ChartView(props) {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis
-          domain={[1, maxYValue]} type="number" />
+          domain={[minYValue, maxYValue]} type="number" />
         <Tooltip />
         <ReferenceLine y={maxValue} label="Max" stroke="red" strokeDasharray="3 3" />
         <ReferenceLine y={minValue} label="Min" stroke="grey" strokeDasharray="3 3" />

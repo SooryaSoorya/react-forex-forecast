@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables.scss";
+
 .alertcontainer {
     position: relative;
     z-index: 99;
@@ -10,9 +12,9 @@
 }
 
 .toast-body {
-    color: red;
+    color: $redColor;
 }
 
 .toast-header {
-    color: red !important;
+    color: $redColor !important;
 }

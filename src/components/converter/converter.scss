@@ -1,38 +1,39 @@
 $assetPath : "/./../../assets/images/";
 $greenColor : #95ecaf;
-$blackColor : #000;
-$greyColor : #ced4da;
-$darkGreyColor : #777777;
+@import "../../assets/styles/variables.scss";
+
 .rff-converter {
-    width: 100%;
-    padding: 0 15%;
-    box-sizing: border-box;
-    text-align: center;
+  width: 100%;
+  padding: 0 15%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .rff-form {
-    display: flex;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }
-  
+
 .rff-orm,
 .rff-baseamount,
 .rff-targetamount,
 .rff-weeks {
-        padding: 5px;
-        margin: 5px 10px;
-        border-radius: 5px;
-        border: 1px solid rgba(119, 119, 119, 0.5) !important;
+  padding: 5px;
+  margin: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(119, 119, 119, 0.5) !important;
 }
+
 .rff-submitbtn {
   background-color: $greenColor !important;
   color: $blackColor !important;
   border-color: $greenColor !important
 }
+
 .headerimage {
   position: absolute;
   width: 32px;
@@ -40,13 +41,31 @@ $darkGreyColor : #777777;
   background-repeat: no-repeat;
   top: 14px;
 }
-.was-validated .form-control:valid, .form-control.is-valid {
-  border : 1px solid $greyColor !important;
+
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border: 1px solid $greyColor !important;
   background-image: none !important;
 }
-.predictionview {
+
+.rff-predictionview {
   position: absolute;
 }
-.chartview {
+
+.rff-chartview {
   position: absolute;
+}
+
+.rff-chartnodata {
+  position: relative;
+  top: 50%;
+  left: -1%;
+  color: $darkGreyColor;
+  z-index: 999;
+}
+
+.rff-chartcontainer {
+  position: absolute;
+  max-width: 1140px;
+  right: 7%;
 }
