@@ -9,23 +9,18 @@ function ChartView(props) {
   const [minValue, setMinValue] = useState();
   const [minYValue, setMinYValue] = useState();
   const [maxYValue, setMaxYValue] = useState();
-  const [chartColor, setChartColor] = useState(props.areaColor);
-  console.log('areaColorareaColor', props.areaColor);
-  console.log('props.renderDataprops.renderData', props.renderData);
+  const [chartColor, setChartColor] = useState();
   useEffect(() => {
     if (props.renderData) {
       setMaxValue(getMaxXValue());
       setMinValue(getMinValue());
-      setChartMaxYValue();
-      setChartMinYValue();
-      setChartColor(props.areaColor)
+      setMaxYValue(Math.round(maxValue + (25 * maxValue / 100)));
+      setMinYValue(Math.round(minValue - (50 * minValue / 100)));
+      setChartColor();
     }
-  }, [props.areaColor, props.toCurrency, props.renderData])
+  })
 
   const getMaxXValue = () => {
-    // console.log('Math.max(...props.renderData.map(item => (item[props.toCurrency])), 0);', Math.max(...props.renderData.map(item => (item[props.toCurrency])), 0))
-    // return Math.max(...props.renderData.map(item => (item[props.toCurrency])), 0);
-    // console.log('props.toCurrency',props.toCurrency)
     return Math.max(...props.renderData.map(function (item) { return item[props.toCurrency]; }), 0);
   }
 
@@ -33,16 +28,7 @@ function ChartView(props) {
     return Math.min.apply(null, props.renderData.map(function (item) { return item[props.toCurrency]; }));
   }
 
-  const setChartMaxYValue = () => {
-    setMaxYValue(Math.round(maxValue + (25 * maxValue / 100)));
-  }
-
-  const setChartMinYValue = () => {
-    setMinYValue(Math.round(minValue - (50 * minValue / 100)));
-  }
-
   return (
-
     <div >
       <h3 className="rff-chartheader">{props.header}</h3>
       <AreaChart
@@ -55,8 +41,8 @@ function ChartView(props) {
       >
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor={chartColor} stopOpacity={0.8} />
-            <stop offset="95%" stopColor={chartColor} stopOpacity={0} />
+            <stop offset="5%" stopColor={props.areaColor} stopOpacity={0.8} />
+            <stop offset="95%" stopColor={props.areaColor} stopOpacity={0} />
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" />
@@ -66,7 +52,7 @@ function ChartView(props) {
         <Tooltip />
         <ReferenceLine y={maxValue} label="Max" stroke="red" strokeDasharray="3 3" />
         <ReferenceLine y={minValue} label="Min" stroke="grey" strokeDasharray="3 3" />
-        <Area type="monotone" dataKey={props.toCurrency} stackId="1" stroke={chartColor}
+        <Area type="monotone" dataKey={props.toCurrency} stackId="1" stroke={props.areaColor}
           fillOpacity={1} fill="url(#colorUv)" />
       </AreaChart>
     </div>

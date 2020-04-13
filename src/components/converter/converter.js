@@ -8,7 +8,8 @@ import ChartView from './../chart-view/chart-view';
 import headerImage from './../../assets/images/money.png';
 import {
   CHART_COLOR,
-  PREDICTION_CHART_COLOR
+  PREDICTION_CHART_COLOR,
+  DEFAULT_NO_OF_WEEKS
 } from './../../config';
 
 function Converter(props) {
@@ -17,7 +18,7 @@ function Converter(props) {
   const [toCurrency, setToCurrency] = useState(props.toCurrency);
   const [chartData, setChartData] = useState();
   const [predictionData, setPredictionData] = useState();
-  const [weekNo, setWeekNo] = useState(2);
+  const [weekNo, setWeekNo] = useState(DEFAULT_NO_OF_WEEKS);
   const [baseamount, setBaseamount] = useState('');
   const [targetamount, setTargetamount] = useState();
   const [chartConfig, setChartConfig] = useState({ toCurrency: "" });
@@ -27,7 +28,7 @@ function Converter(props) {
 
   useEffect(() => {
     setInitialValues({});
-  }, []);
+  }, [baseamount]);
 
   const onSelectChange = event => {
     resetInputFields();
@@ -38,13 +39,22 @@ function Converter(props) {
     }
   };
 
+  const onAmountChange = event => {
+    if (baseamount || targetamount) {
+      if (event.target.name === "base") {
+        setTargetamount((event.target.value * targetamount).toFixed(2));
+      } else if (event.target.name === "target") {
+        setBaseamount((baseamount / event.target.value).toFixed(2))
+      }
+    }
+  };
+
   const setInitialValues = () => {
     props.showLoading(true);
     setChartProperties();
-    let startDate = moment().subtract('days', 7).format('YYYY-MM-DD');
     serviceInstance.exhangeRequest(
       {
-        startDate: startDate,
+        startDate: startDate(),
         todayDate: todayDate(),
         fromCurrency: fromCurrency,
         toCurrency: toCurrency
@@ -156,17 +166,16 @@ function Converter(props) {
 
   const setInputValuesOnConvertClick = (chartData) => {
     const tempChartData = chartData;
+    !baseamount && setBaseamount(1);
     Object.keys(tempChartData).forEach(key => {
       const item = tempChartData[key];
       if (item['name'] === moment().format("DD-MM-YYYY")) {
-        const targetAmount = (item[toCurrency] / item[fromCurrency]);
+        const targetAmount = baseamount * (item[toCurrency] / item[fromCurrency]);
         setTargetamount(targetAmount.toFixed(2));
-        setBaseamount(1);
         return;
       } else if (item['name'] === moment().subtract(1, "days").format("DD-MM-YYYY")) {
-        const targetAmount = (item[toCurrency] / item[fromCurrency]);
+        const targetAmount = baseamount * (item[toCurrency] / item[fromCurrency]);
         setTargetamount(targetAmount.toFixed(2));
-        setBaseamount(1);
         return;
       }
     });
@@ -193,7 +202,7 @@ function Converter(props) {
   return (
 
     <div className="rff-converter">
-      <Card>
+      <Card className="rff-formcontainer">
         <Card.Header as="h5">
           <span>Currency </span>Converter
           <span role="img" aria-label="money"
@@ -207,8 +216,9 @@ function Converter(props) {
           <Form noValidate validated={validated} onSubmit={onConvertButtonClick}>
             <Form.Row>
               <Form.Group as={Col} md="6" controlId="converterForm.baseAmount">
-                <Form.Control type="text" placeholder="Base amount"
-                  defaultValue={baseamount} />
+                <Form.Control type="text" placeholder="Base amount" name="base"
+                  value={baseamount}
+                  onChange={onAmountChange} />
               </Form.Group>
 
               <Form.Group as={Col} md="6" controlId="validationFormik01">
@@ -226,8 +236,9 @@ function Converter(props) {
 
             <Form.Row>
               <Form.Group as={Col} md="6" controlId="converterForm.targetAmount">
-                <Form.Control type="text" placeholder="Target amount"
-                  defaultValue={targetamount} />
+                <Form.Control type="text" placeholder="Target amount" name="target"
+                  value={targetamount}
+                  onChange={onAmountChange} />
               </Form.Group>
 
               <Form.Group as={Col} md="6" controlId="validationFormik01">
@@ -259,7 +270,8 @@ function Converter(props) {
         </Card.Body>
       </Card>
 
-      <Container className="rff-chartcontainer">
+      <Container className="rff-chartcontainer"
+        className={`rff-chartcontainer${!predictionData ? 'single' : 'sidebyside'}`}>
         <Row>
           {chartData &&
             <Col xs={6}>
