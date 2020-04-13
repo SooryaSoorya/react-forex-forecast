@@ -59,13 +59,18 @@ $greenColor : #95ecaf;
 .rff-chartnodata {
   position: relative;
   top: 50%;
-  left: -1%;
+  right: 15%;
   color: $darkGreyColor;
   z-index: 999;
 }
 
-.rff-chartcontainer {
+.rff-chartcontainersidebyside {
   position: absolute;
   max-width: 1140px;
   right: 7%;
+}
+.rff-chartcontainersingle {
+  position: absolute;
+  max-width: 1140px;
+  padding-left: 10% !important;
 }
