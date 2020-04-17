@@ -8,9 +8,10 @@ You can run a hosted version of the app at [url]()
 
 The project uses Node.js and the [Create React App](https://github.com/facebook/create-react-app) starter. If you do not have Node >= 6.x installed, you can download it here: [Node.js](https://nodejs.org/en/)
 
-Once Node is installed, navigate to the directory where you want to store the app
+Once Node is installed, navigate to the directory where you want to store the app run commands:
 ```
-git clone https://github.com/SooryaSoorya/forecast-app.git
+git clone https://github.com/SooryaSoorya/forecast-app.git 
+
 npm install
 ```
 Once all of the dependencies have been installed successfully from the project directory you can launch the app with
@@ -24,7 +25,8 @@ A new browser window should automatically open displaying the app. If it doesn't
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console. <br/>
-Launches the test runner in the interactive watch mode with <br />
+
+Launche the test runner in the interactive watch mode with <br />
 ```
 npm test
 ```
@@ -36,11 +38,12 @@ npm run build
 ```
 It correctly bundles React in production mode and optimizes the build for the best performance.
 The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Your app is ready to be deployed!!
 
 ## App Description
 
 - Contains  App, Converter, Chart-view, Loader, Alert components in src folder
+- API used for currency rates [Exchange rates api](https://www.exchangeratesapi.io/)
 
 ## References
 
@@ -51,4 +54,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 Feel free to ask me questions on Twitter [@Soorya](https://twitter.com/_soorya) , LinkedIn [@haisoorya](https://www.linkedin.com/in/haisoorya/) <br/>
 
 
-Have fun:-) !!
+Happy coding:-)
