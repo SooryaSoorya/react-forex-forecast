@@ -47,7 +47,7 @@ describe('converter-component', () => {
         expect(toCurrencyEl.props().defaultValue).toEqual('INR');
     });
     it("should have a submit button", () => {
-        const fakeEvent = { preventDefault: () => console.log('preventDefault') };
+        const fakeEvent = { preventDefault: () => {} };
         expect(container.find('.rff-submitbtn').hostNodes().length).toEqual(1);
         container.find('.rff-submitbtn').hostNodes().simulate('click');
     });
