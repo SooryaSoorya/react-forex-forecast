@@ -127,12 +127,6 @@ function Converter(props) {
   const setInitialChartData = (result) => {
     if (result && result.rates) {
       const sortedData = getChartData(result.rates);
-      // var tempSortedArray = [...sortedArray];
-      // let tempData = [];
-      // Object.assign(resultSet, { "name": moment().format("DD-MM-YYYY") });
-      // tempData.push(resultSet);
-      // setTargetamount(tempData[0][toCurrency]);
-      // setBaseamount(1);
       setChartData(sortedData);
     } else {
       setButtonEnable(false);
@@ -195,8 +189,14 @@ function Converter(props) {
   }
 
   const reverseArrayWithCurrency = (array) => {
-    for (let i = 0, j = array.length - 1; i < j; i++, j--)
+    for (let i = 0, j = array.length - 1; i < j; i++, j--) {
       [array[i], array[j]] = [array[j], array[i]];
+    }
+    for (let i = 0; i <= array.length - 1; i++) {
+      const randomNumber = Math.floor((Math.random() * 10) + 1);
+      const futureDate = moment().add(randomNumber, 'days').format('DD-MM-YYYY');
+      array[i]['name'] = futureDate;
+    }
   }
 
   return (
