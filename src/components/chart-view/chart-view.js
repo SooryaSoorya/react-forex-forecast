@@ -9,14 +9,12 @@ function ChartView(props) {
   const [minValue, setMinValue] = useState();
   const [minYValue, setMinYValue] = useState();
   const [maxYValue, setMaxYValue] = useState();
-  const [chartColor, setChartColor] = useState();
   useEffect(() => {
     if (props.renderData) {
       setMaxValue(getMaxXValue());
       setMinValue(getMinValue());
       setMaxYValue(Math.round(maxValue + (25 * maxValue / 100)));
       setMinYValue(Math.round(minValue - (50 * minValue / 100)));
-      setChartColor();
     }
   })
 
@@ -39,6 +37,8 @@ function ChartView(props) {
           top: 10, right: 500, left: 0, bottom: 20,
         }}
       >
+        <Area dataKey={props.toCurrency} type="monotone"  stackId="1" stroke={props.areaColor}
+          fillOpacity={1} fill="url(#colorUv)" />
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor={props.areaColor} stopOpacity={0.8} />
@@ -52,8 +52,7 @@ function ChartView(props) {
         <Tooltip />
         <ReferenceLine y={maxValue} label="Max" stroke="red" strokeDasharray="3 3" />
         <ReferenceLine y={minValue} label="Min" stroke="grey" strokeDasharray="3 3" />
-        <Area type="monotone" dataKey={props.toCurrency} stackId="1" stroke={props.areaColor}
-          fillOpacity={1} fill="url(#colorUv)" />
+
       </AreaChart>
     </div>
   )

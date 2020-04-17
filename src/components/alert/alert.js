@@ -21,7 +21,7 @@ function Alert(props) {
       <Toast className="toastcontainer"
         onClose={onAlertClose}
         show={show}
-        delay={5000}
+        delay={10000}
         autohide>
         <Toast.Header>
           <strong className="mr-auto">Message</strong>
