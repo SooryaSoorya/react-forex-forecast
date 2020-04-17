@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Loader from './loader';
 
-describe('<Loader />', () => {
-  test('renders', () => {
-    const wrapper = shallow(<Loader />);
-    expect(wrapper).toMatchSnapshot();
-  });
+describe('loader-component', () => {
+    const loaderContainer = shallow(<Loader />);
+    it('<Loader /> should render', () => {
+        expect(loaderContainer.exists()).toBe(true);
+    });
 });

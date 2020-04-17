@@ -10,7 +10,7 @@ import Alert from "./components/alert";
 
 function App() {
   const [fromCurrency] = useState('USD');
-  const [toCurrency] = useState('EUR');
+  const [toCurrency] = useState('INR');
   const [showSpinner, setShowSpinner] = useState(true);
   const [showAlertValue, setShowAlert] = useState(false);
   const [showAlertMessageValue, setAlertMessageValue] = useState();
