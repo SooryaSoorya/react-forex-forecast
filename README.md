@@ -7,8 +7,6 @@ Link to Demo App: https://sooryasoorya.github.io/react-forex-forecast/
 
 ## How to Load the App
 
-You can run a hosted version of the app at [url]()
-
 The project uses Node.js and the [Create React App](https://github.com/facebook/create-react-app) starter. If you do not have Node >= 6.x installed, you can download it here: [Node.js](https://nodejs.org/en/)
 
 Once Node is installed, navigate to the directory where you want to store the app run commands:
