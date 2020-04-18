@@ -2,6 +2,9 @@
 
 Web app that helps users to find best possible time for converting money from one currency to another, using historical currency rates.<br />
 
+## Demo
+Link to Demo App: https://sooryasoorya.github.io/react-forex-forecast/
+
 ## How to Load the App
 
 You can run a hosted version of the app at [url]()
