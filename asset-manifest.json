@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/SooryaSoorya/react-forex-forecast/static/css/main.c952eef5.chunk.css",
+    "main.js": "/SooryaSoorya/react-forex-forecast/static/js/main.8e5c4121.chunk.js",
+    "main.js.map": "/SooryaSoorya/react-forex-forecast/static/js/main.8e5c4121.chunk.js.map",
+    "runtime-main.js": "/SooryaSoorya/react-forex-forecast/static/js/runtime-main.744d624c.js",
+    "runtime-main.js.map": "/SooryaSoorya/react-forex-forecast/static/js/runtime-main.744d624c.js.map",
+    "static/css/2.89f067aa.chunk.css": "/SooryaSoorya/react-forex-forecast/static/css/2.89f067aa.chunk.css",
+    "static/js/2.49c44a08.chunk.js": "/SooryaSoorya/react-forex-forecast/static/js/2.49c44a08.chunk.js",
+    "static/js/2.49c44a08.chunk.js.map": "/SooryaSoorya/react-forex-forecast/static/js/2.49c44a08.chunk.js.map",
+    "index.html": "/SooryaSoorya/react-forex-forecast/index.html",
+    "precache-manifest.f495b8b48523092abb293d59110ae858.js": "/SooryaSoorya/react-forex-forecast/precache-manifest.f495b8b48523092abb293d59110ae858.js",
+    "service-worker.js": "/SooryaSoorya/react-forex-forecast/service-worker.js",
+    "static/css/2.89f067aa.chunk.css.map": "/SooryaSoorya/react-forex-forecast/static/css/2.89f067aa.chunk.css.map",
+    "static/css/main.c952eef5.chunk.css.map": "/SooryaSoorya/react-forex-forecast/static/css/main.c952eef5.chunk.css.map",
+    "static/js/2.49c44a08.chunk.js.LICENSE.txt": "/SooryaSoorya/react-forex-forecast/static/js/2.49c44a08.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.744d624c.js",
+    "static/css/2.89f067aa.chunk.css",
+    "static/js/2.49c44a08.chunk.js",
+    "static/css/main.c952eef5.chunk.css",
+    "static/js/main.8e5c4121.chunk.js"
+  ]
+}
