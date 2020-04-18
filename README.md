@@ -46,6 +46,7 @@ Your app is ready to be deployed!!
 ## App Description
 
 - Contains  App, Converter, Chart-view, Loader, Alert components in src folder
+- Have used [gh-pages](https://github.com/tschaub/gh-pages) to deploy the app
 - API used for currency rates [Exchange rates api](https://www.exchangeratesapi.io/)
 
 ## References
