@@ -11,7 +11,7 @@ The project uses Node.js and the [Create React App](https://github.com/facebook/
 
 Once Node is installed, navigate to the directory where you want to store the app run commands:
 ```
-git clone https://github.com/SooryaSoorya/forecast-app.git 
+git clone https://github.com/SooryaSoorya/react-forex-forecast.git
 
 npm install
 ```
